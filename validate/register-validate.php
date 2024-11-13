@@ -18,8 +18,10 @@ if (isset($_POST['submit'])) {
         array_push($errors, "All fields are required");
     }
 
-    if (strlen($pass) < 8) {
-        array_push($errors, "Password must be at least 8 characters long");
+    if (!isset($pass)) {
+        if (strlen($pass) < 8) {
+            array_push($errors, "Password must be at least 8 characters long");
+        }
     }
 
     if ($pass !== $confirm_password) {
