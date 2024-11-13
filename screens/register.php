@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,56 +19,23 @@
         <div class="intro">
             <h1>Register Admin Account</h1>
         </div>
+
         <?php
-            include "../validate/db.php";
-
-            if (isset($_POST['submit'])) {
-                $fullname = $_POST['fullname'];
-                $user = $_POST['username'];
-                $pass = $_POST['password'];
-                $confirm_password = $_POST['confirm_password'];
-                
-                $password_hash = password_hash($pass, PASSWORD_DEFAULT);
-                $errors = array();
-
-                if (empty($fullname) OR empty($user) OR empty($pass) OR empty($confirm_password)) {
-                    array_push($errors, "All fields are required");
-                }
-
-                if (strlen($pass) < 8) {
-                    array_push($errors,"Password must be at least 8 characters long");
-                }
-
-                if ($pass !== $confirm_password) {
-                    array_push($errors,"Password does not match");
-                }
-
-                $sql = "SELECT * FROM users WHERE username ='$user'";
-                $result = mysqli_query($conn, $sql);
-                $rowcount = mysqli_num_rows($result);
-                if ($rowcount > 0) {
-                    array_push($errors, "Username already exists!");
-                }
-
-                if (count($errors) > 0)  {
-                    foreach ($errors as $error) {
-                        echo "<div class='error_alert'>$error</div>";
-                    }
-                } else {
-                    $sql = "INSERT INTO users (fullname, username, password) VALUES (?,?,?)";
-                    $stmt = mysqli_stmt_init($conn);
-                    $prepare_stmt = mysqli_stmt_prepare($stmt, $sql);
-                    if ($prepare_stmt) {
-                        mysqli_stmt_bind_param($stmt,"sss",$fullname, $user, $password_hash);
-                        mysqli_stmt_execute($stmt);
-                        echo "<div class='success_alert'>You are registered successfully.</div>";
-                    } else {
-                        die("Something went wrong");
-                    }
-                }
+        if (isset($_SESSION['message']) && is_array($_SESSION['message'])) {
+            foreach ($_SESSION['message'] as $error) {
+                echo "<div class='alert error'>{$error}</div>";
             }
+
+            unset($_SESSION['message']);
+        }
+
+        if (isset($_SESSION['success_message'])) {
+            echo "<div class='alert success'>{$_SESSION['success_message']}</div>";
+            unset($_SESSION['success_message']);
+        }
         ?>
-        <form action="" method="POST">
+
+        <form action="../validate/register-validate.php" method="POST">
             <div class="form_data">
                 <input type="text" name="fullname" placeholder="Full Name">
                 <input type="text" name="username" placeholder="Username">
