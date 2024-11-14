@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) {
         include '../validate/alert.php';
         ?>
 
-        <form action="../validate/register-validate.php" method="POST">
+        <form action="validate/register-validate.php" method="POST">
             <div class="form_data">
                 <input type="text" name="fullname" placeholder="Full Name">
                 <input type="text" name="username" placeholder="Username">
