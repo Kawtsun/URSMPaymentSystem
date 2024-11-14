@@ -15,6 +15,6 @@ if (!isset($_SESSION['user'])) {
 </head>
 <body>
     <h1>Hello World!</h1>
-    <a href="validate/logout.php">Logout</a>
+    <a href="validate/logout-validate.php">Logout</a>
 </body>
 </html>
