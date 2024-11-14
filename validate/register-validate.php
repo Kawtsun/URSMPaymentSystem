@@ -27,13 +27,23 @@ if (isset($_POST['submit'])) {
     if ($pass !== $confirm_password) {
         array_push($errors, "Password does not match.");
     }
-    
+
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $user);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0 ) {
+        array_push($errors, "Username already exists!");
+    }
+    /*
     $sql = "SELECT * FROM users WHERE username = '$user'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0 ) {
         array_push($errors, "Username already exists!");
     }
-
+    */
     if (count($errors) > 0) {
        $_SESSION['message'] = $errors;
        header("Location: ../screens/register.php");
