@@ -11,36 +11,13 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="POST">
+        <form action="../validate/login-validate.php" method="POST">
             <div class="intro">
                 <h1>Login Now</h1>
             </div>
 
             <?php
-            include '../validate/db.php';
-
-            if (isset($_POST['login'])) {
-                $user = $_POST['username'];
-                $pass = $_POST['password'];
-                
-                $sql = "SELECT * FROM users WHERE username = '$user'";
-                $result = mysqli_query($conn, $sql);
-                $users = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-                if ($users) {
-                    if (password_verify($pass, $users["password"])) {
-                        session_start();
-                        $_SESSION['user'] = "success";
-                        header("Location: ../index.php");
-                        die();
-                    } else {
-                        echo "<div class='alert error'> Password does not match </div>";
-                    }
-                } else {
-                    echo "<div class='alert error'> User does not match </div>";
-                }
-            }
-
+            include '../validate/alert-login.php';
             ?>
             <div class="form_data">
                 <input type="text" name="username" placeholder="Username">
