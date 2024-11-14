@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if (isset($_SESSION['user'])) {
+    header("Location: ..\index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +12,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URSM Payment System - Register Admin</title>
+    <title>URSM Payment System - Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -30,7 +34,7 @@ session_start();
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
                 <input type="password" name="confirm_password" placeholder="Confirm Password">
-                <input type="submit" value="Register Account" name="submit">
+                <input type="submit" value="Register" name="submit">
             </div>
         </form>
     </div>
