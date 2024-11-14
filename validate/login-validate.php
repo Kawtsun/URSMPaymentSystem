@@ -16,8 +16,8 @@ if (isset($_POST['login'])) {
 
     if ($users) {
         if (password_verify($pass, $users["password"])) {
-            $_SESSION['user'] = "success";
-            header("Location: ../index.php");
+            $_SESSION['user'] = $user;
+            header("Location: ../screens/student-dashboard.php");
             exit();
         } else {
             $_SESSION['error_message'] = "Password does not match.";

@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['user'])) {
-    header("Location: screens/login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +7,5 @@ if (!isset($_SESSION['user'])) {
 </head>
 <body>
     <h1>Hello World!</h1>
-    <a href="validate/logout-validate.php">Logout</a>
 </body>
 </html>
