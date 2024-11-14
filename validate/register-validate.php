@@ -15,17 +15,17 @@ if (isset($_POST['submit'])) {
     $errors = array();
 
     if (empty($fullname) || empty($user) || empty($pass) || empty($confirm_password)) {
-        array_push($errors, "All fields are required");
+        array_push($errors, "All fields are required.");
     }
 
     if (!isset($pass)) {
         if (strlen($pass) < 8) {
-            array_push($errors, "Password must be at least 8 characters long");
+            array_push($errors, "Password must be at least 8 characters long.");
         }
     }
 
     if ($pass !== $confirm_password) {
-        array_push($errors, "Password does not match");
+        array_push($errors, "Password does not match.");
     }
     
     $sql = "SELECT * FROM users WHERE username = '$user'";

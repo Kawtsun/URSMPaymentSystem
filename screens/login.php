@@ -25,6 +25,11 @@
                 <input type="submit" value="Login" name="login">
             </div>
         </form>
+        <div class="message">
+            <p>
+                Not registered yet? <a href="register.php">Register Here</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>

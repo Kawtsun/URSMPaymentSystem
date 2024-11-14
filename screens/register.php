@@ -37,6 +37,11 @@ if (isset($_SESSION['user'])) {
                 <input type="submit" value="Register" name="submit">
             </div>
         </form>
+        <div class="message">
+            <p>
+                Already Registered? <a href="login.php">Login Here</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>
