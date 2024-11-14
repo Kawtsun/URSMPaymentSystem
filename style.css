@@ -66,7 +66,34 @@ body {
     border: 1px solid #f5c6cb;
 }
 
-
 .message {
     margin-top: 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 80px;
+    background-color: rgb(0, 51, 102);
+    color: white;
+}
+
+.navbar .logo img {
+    width: 430px;
+}
+
+
+.buttons a {
+    display: inline-block;
+    width: 120px;
+    margin-right: 5px;
+    padding: 8px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.buttons .action {
+    border: 1px solid;
 }
