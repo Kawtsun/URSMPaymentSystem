@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header("Location: screens/student-dashboard.php");
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
