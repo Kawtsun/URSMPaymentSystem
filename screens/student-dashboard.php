@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: screens/login.php");
+    header("Location: login.php");
 }
 
 echo "Welcome, " . $_SESSION['user'];
