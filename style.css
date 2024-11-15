@@ -97,3 +97,53 @@ body {
 .buttons .action {
     border: 1px solid;
 }
+
+.container_student {
+    margin: 50px auto;
+    width: 600px;
+}
+
+.form_student {
+    text-align: left;
+}
+
+.form_student label {
+    display: block;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.form_student input, select {
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 8px;
+}
+
+hr {
+    margin: 30px 0;
+}
+
+.checkbox {
+    margin: 10px 0;
+}
+
+.radio {
+    margin: 5px 0;
+    margin-left: 30px;
+}
+
+.checkbox label{
+    font-weight: 400;
+    display: inline;
+}
+
+.checkbox input, .radio input {
+    padding: 0;
+    width: fit-content;
+}
+
+.radio label {
+    font-weight: 400;
+    display: inline;
+}
