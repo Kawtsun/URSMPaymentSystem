@@ -19,6 +19,7 @@ echo "Welcome, " . $_SESSION['user'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="..\style.css">
+    <script src="..\script.js"></script>
 </head>
 <body>
     <a href="../validate/logout-validate.php">Logout</a>
@@ -96,16 +97,16 @@ echo "Welcome, " . $_SESSION['user'];
                 <label for="fee5">Speech Laboratory</label>
             </div>
             <div class="checkbox">
-                <input type="checkbox" name="fee6" value="Computer Laboratory">
+                <input type="checkbox" id="complab_checkbox" name="fee6" value="Computer Laboratory" onclick="toggleRadioButtons()">
                 <label for="fee6">Computer Laboratory</label>
             </div>
             <div class="radio">
-                <input type="radio" name="lab" disabled>
+                <input type="radio" id="complab_option" name="lab" disabled>
                 <label for="lab1">IT Student</label>
                 
             </div>
             <div class="radio">
-                <input type="radio" name="lab" disabled>
+                <input type="radio" id="complab_option" name="lab" disabled>
                 <label for="lab2">Non-IT Student</label>
             </div>
 
