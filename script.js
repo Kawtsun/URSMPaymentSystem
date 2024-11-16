@@ -1,3 +1,4 @@
+// Toggle Radio Button upon checking the computerlab
 function toggleRadioButtons() {
     const compLabCheckbox = document.getElementById('complab_checkbox');
     const radioButtons = document.getElementsByName('lab');
